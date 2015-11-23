@@ -1,6 +1,5 @@
 /* global katex */
 var splitAtDelimiters = require("./splitAtDelimiters");
-var $ = require('jquery');
 
 var splitWithDelimiters = function (text, delimiters) {
     var data = [{type: "text", data: text}];

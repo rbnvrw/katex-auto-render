@@ -17,8 +17,8 @@ module.exports = function (config) {
     config.flags = {
         minify: true,
         sourcemap: true,
-        uglify: false,
-        stripcomments: false,
+        uglify: true,
+        stripcomments: true,
         debug: false,
         build: true
     };
@@ -34,6 +34,7 @@ module.exports = function (config) {
             standalone: 'renderKatexMathjaxFallback',
             debug: config.flags.debug,
             transform: ['require-globify'],
+            noParse: ['jquery'],
             ignoreMissing: true
         }
     };
