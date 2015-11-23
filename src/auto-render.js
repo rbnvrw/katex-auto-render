@@ -17,7 +17,7 @@ var loadMathJax = function (element) {
         // mathjax successfully loaded, let it render
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, element]);
     }else {
-        var mjaxURL = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
+        var mjaxURL = "//cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML";
         // load mathjax script
         $.getScript(mjaxURL, function () {
             // mathjax successfully loaded, let it render
