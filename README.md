@@ -13,14 +13,14 @@ included in the page:
 <script src="/path/to/auto-render.min.js"></script>
 ```
 
-Then, call the exposed `renderMathInElement` function in a script tag
+Then, call the exposed `renderKatexMathjaxFallback` function in a script tag
 before the close body tag:
 
 ```html
 <body>
   ...
   <script>
-    renderMathInElement(document.body);
+    renderKatexMathjaxFallback(document.body);
   </script>
 </body>
 ```
@@ -29,11 +29,11 @@ See [index.html](index.html) for an example.
 
 ### API
 
-This extension exposes a single function, `window.renderMathInElement`, with
+This extension exposes a single function, `window.renderKatexMathjaxFallback`, with
 the following API:
 
 ```js
-function renderMathInElement(elem, options)
+function renderKatexMathjaxFallback(elem, options)
 ```
 
 `elem` is an HTML DOM element. The function will recursively search for text
