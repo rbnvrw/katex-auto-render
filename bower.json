@@ -16,6 +16,6 @@
     "tests"
   ],
   "dependencies": {
-    "KaTeX": "katex#~0.5.1"
+    "KaTeX": "https://github.com/henzestplus/KaTeX.git#stplus_release"
   }
 }
