@@ -1,0 +1,21 @@
+{
+  "name": "katex-auto-render",
+  "description": "KaTeX auto render with MathJax fallback",
+  "main": "index.js",
+  "authors": [
+    "Ruben Verweij <ruben@studentsplus.nl>"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/rbnvrw/katex-auto-render",
+  "moduleType": [],
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "KaTeX": "katex#~0.5.1"
+  }
+}

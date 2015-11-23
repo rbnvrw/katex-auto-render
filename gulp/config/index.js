@@ -17,8 +17,8 @@ module.exports = function (config) {
     config.flags = {
         minify: true,
         sourcemap: true,
-        uglify: true,
-        stripcomments: true,
+        uglify: false,
+        stripcomments: false,
         debug: false,
         build: true
     };
@@ -31,7 +31,7 @@ module.exports = function (config) {
         bundle: 'auto-render.min.js',
         dest: config.path.dist,
         opts: {
-            standalone: 'katex_auto_render',
+            standalone: 'renderKatexMathjaxFallback',
             debug: config.flags.debug,
             transform: ['require-globify'],
             ignoreMissing: true

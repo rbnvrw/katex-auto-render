@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <link rel="stylesheet" href="../bower_components/KaTeX/dist/katex.min.css">
+    <script src="https://code.jquery.com/jquery-2.1.4.min.js" type="text/javascript"></script>
+    <script src="../bower_components/KaTeX/dist/katex.min.js" type="text/javascript"></script>
+    <script src="../dist/auto-render.min.js" type="text/javascript"></script>
+    <script type="text/javascript">
+        $(document).ready(function(){
+            renderKatexMathjaxFallback($('body')[0]);
+        });
+    </script>
+</head>
+<body>
+\(A=\sqrt 2 \mbox{ en } B= ^{\sqrt 2}\log{3}\)
+</body>
+</html>

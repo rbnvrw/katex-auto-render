@@ -9,7 +9,8 @@ var browserify = require('browserify'),
     derequire = require('gulp-derequire'),
     strip = require('gulp-strip-comments'),
     uglify = require('gulp-uglify'),
-    streamify = require('gulp-streamify');
+    streamify = require('gulp-streamify'),
+    gutil = require('gulp-util');
 
 /*
  * @param gulp {Function}

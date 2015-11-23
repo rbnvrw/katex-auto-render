@@ -1,6 +1,6 @@
 /* global katex */
-
 var splitAtDelimiters = require("./splitAtDelimiters");
+var $ = require('jquery');
 
 var splitWithDelimiters = function (text, delimiters) {
     var data = [{type: "text", data: text}];
@@ -13,19 +13,23 @@ var splitWithDelimiters = function (text, delimiters) {
     return data;
 };
 
-var loadMathJax = function () {
-    var head = document.getElementsByTagName("head")[0], script;
-    script = document.createElement("script");
-    script.type = "text/x-mathjax-config";
-    script[(window.opera ? "innerHTML" : "text")] =
-        "MathJax.Hub.Config({\n" +
-        " \"HTML-CSS\": {scale: 150}\n" +
-        "});";
-    head.appendChild(script);
-    script = document.createElement("script");
-    script.type = "text/javascript";
-    script.src = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
-    head.appendChild(script);
+var loadMathJax = function (element) {
+    var mjaxURL  = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML&delayStartupUntil=configured";
+    // load mathjax script
+    $.getScript(mjaxURL, function() {
+        // Configuration
+        var head = document.getElementsByTagName("head")[0], script;
+        script = document.createElement("script");
+        script.type = "text/x-mathjax-config";
+        script[(window.opera ? "innerHTML" : "text")] =
+            "MathJax.Hub.Config({\n" +
+            " \"HTML-CSS\": {scale: 150}\n" +
+            "});";
+        head.appendChild(script);
+        MathJax.Hub.Configured();
+        // mathjax successfully loaded, let it render
+        MathJax.Hub.Queue(["Typeset", MathJax.Hub, element]);
+    });
 };
 
 var renderMathInText = function (text, delimiters) {
@@ -47,10 +51,8 @@ var renderMathInText = function (text, delimiters) {
                 if (!(e instanceof katex.ParseError)) {
                     throw e;
                 }
-                loadMathJax();
                 span.appendChild(document.createTextNode(data[i].rawData));
-                MathJax.Hub.Queue(["Typeset", MathJax.Hub, span]);
-                continue;
+                loadMathJax(span);
             }
             fragment.appendChild(span);
         }
