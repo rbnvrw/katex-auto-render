@@ -17,16 +17,6 @@ var loadMathJax = function (element) {
         // mathjax successfully loaded, let it render
         MathJax.Hub.Queue(["Typeset", MathJax.Hub, element]);
     }else {
-        // Configuration
-        var head = document.getElementsByTagName("head")[0], script;
-        script = document.createElement("script");
-        script.type = "text/x-mathjax-config";
-        script[(window.opera ? "innerHTML" : "text")] =
-            "MathJax.Hub.Config({\n" +
-            " \"HTML-CSS\": {scale: 150}\n" +
-            "});";
-        head.appendChild(script);
-
         var mjaxURL = "http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML";
         // load mathjax script
         $.getScript(mjaxURL, function () {
